@@ -1,0 +1,66 @@
+package application;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Funcionario;
+
+public class Program {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		Funcionario novoFuncionario;
+		List<Funcionario> funcionarios = new ArrayList<Funcionario>();
+
+		System.out.print("Quantos deseja cadastrar? ");
+		int n = sc.nextInt();
+
+		for (int i = 0; i < n; i++) {
+			System.out.println("funcionario #" + i + 1 + ":");
+			System.out.print("Id: ");
+			int id = sc.nextInt();
+			sc.nextLine();
+			Funcionario verificado = verificar(funcionarios, id);
+			if(verificado != null) {
+				System.out.print("Esse id já existe, por favor tente outro: ");
+				while(verificado != null) {
+					id = sc.nextInt();
+					verificado = verificar(funcionarios, id);
+				}
+			}
+			sc.nextLine();
+			System.out.print("nome: ");
+			String nome = sc.nextLine();
+			System.out.print("salario: ");
+			double salario = sc.nextDouble();
+
+			novoFuncionario = new Funcionario(id, nome, salario);
+			funcionarios.add(novoFuncionario);
+		}
+		
+		System.out.print("id para aumento de salario: ");
+		int id = sc.nextInt();
+		Funcionario funcion = verificar(funcionarios, id);
+		if(funcion != null) {
+			System.out.print("Porcentagem para aumento: ");
+			double porcentagem = sc.nextDouble();
+			funcion.aumento(id, porcentagem);
+			System.out.println(funcion);
+		} else {
+			System.out.println("esse Id não é Válido");
+		}
+	
+		
+		
+		sc.close();
+	}
+	
+	public static Funcionario verificar(List<Funcionario> lista, int id) {
+		Funcionario funcio = lista.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+		return funcio;
+	}
+
+}

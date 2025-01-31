@@ -1,0 +1,45 @@
+package application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+
+public class Program {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Quantos numeros voce vai digitar? ");
+		int numeros = sc.nextInt();
+		sc.nextLine();
+		String[] nome = new String[numeros];
+		int[] idade = new int[numeros];
+		
+		for (int i = 0; i < nome.length; i++) {
+			System.out.print("Nome: ");
+			String nom = sc.nextLine();
+			System.out.print("idade: ");
+			int idad = sc.nextInt();
+			sc.nextLine();
+			nome[i] = nom;
+			idade[i] = idad;
+		}
+		
+		int aux = 0;
+		String pessoaMaisVelha = "";
+		for(int i = 0; i < nome.length; i++) {
+			
+			if(aux < idade[i]) {
+				pessoaMaisVelha = nome[i];
+				aux = idade[i];
+			}
+			
+		}
+		System.out.printf("pessoa mais velha: %s", pessoaMaisVelha);
+		
+		
+		sc.close();
+	}
+
+}

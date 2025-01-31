@@ -1,0 +1,35 @@
+package application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+
+public class Program {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Quantos numeros voce vai digitar? ");
+		int numeros = sc.nextInt();
+		int[] vetor = new int[numeros];
+		
+		int somaPar = 0;
+		int nPares =0;
+		for(int i = 0; i < vetor.length; i++) {
+			System.out.print("Digite um numero: ");
+			vetor[i] = sc.nextInt();
+			
+			if(vetor[i] % 2 == 0) {
+				somaPar += vetor[i];
+				nPares++;
+			}
+		}
+		
+		double media = somaPar / nPares;
+		System.out.printf("media dos pares = %.1f", media);
+		
+		sc.close();
+	}
+
+}

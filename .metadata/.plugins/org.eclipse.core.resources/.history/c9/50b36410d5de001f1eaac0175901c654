@@ -1,0 +1,51 @@
+package application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Conta;
+import entities.Pessoa;
+import entities.Produto;
+
+
+
+public class Program {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		System.out.print("quantos pessoas serão digitadas? ");
+		int n = sc.nextInt();
+		Pessoa[] pessoas = new Pessoa[n];
+		sc.nextLine();
+		for(int i = 0; i < pessoas.length; i++) {
+			System.out.println("dados da " + i+1 + "a pessoa: ");
+			System.out.print("nome: ");
+			String nome = sc.nextLine();
+			System.out.print("idade: ");
+			int idade = sc.nextInt();
+			System.out.print("altura:");
+			double altura = sc.nextDouble();
+			pessoas[i] = new Pessoa(nome, idade, altura);
+		}
+		
+		double somaAltua = 0.0;
+		int numeroDeMenores = 0;
+		for(int i = 0; i < pessoas.length; i++) {
+			somaAltua += pessoas[i].getAltura();
+			
+			if(pessoas[i].getIdade() < 16) {
+				numeroDeMenores++;
+			}
+		}
+		
+		double alturaMedia = somaAltua / pessoas.length;
+		double porcentagemMenores = numeroDeMenores / pessoas.length;
+		
+		System.out.printf("altura media %.2f%n", alturaMedia);
+		
+		
+		sc.close();
+	}
+
+}

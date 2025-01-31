@@ -1,0 +1,45 @@
+package application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+
+public class Program {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Quantos numeros voce vai digitar? ");
+		int numeros = sc.nextInt();
+		int[] vetorA = new int[numeros];
+		int[] vetorB = new int[numeros];
+		int[] vetorC = new int[numeros];
+		
+		System.out.println("valores vetor A ");
+		for(int i = 0; i < vetorA.length; i++) {
+			System.out.print("Digite um numero: ");
+			vetorA[i] = sc.nextInt();
+		}
+		System.out.println("valores vetor B ");
+		for(int i = 0; i < vetorB.length; i++) {
+			System.out.print("Digite um numero: ");
+			vetorB[i] = sc.nextInt();
+		}
+		
+		int somaVetores = 0;
+		for(int i = 0; i < vetorB.length; i++) {
+			somaVetores = vetorA[i] + vetorB[i];
+			vetorC[i] = somaVetores;
+		}
+		System.out.println("resultado");
+		for(int i = 0; i < vetorB.length; i++) {
+			System.out.println(vetorC[i]);
+		}
+		
+		
+		
+		sc.close();
+	}
+
+}
