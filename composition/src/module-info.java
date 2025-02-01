@@ -4,5 +4,5 @@
 /**
  * 
  */
-module teste {
+module composition {
 }
