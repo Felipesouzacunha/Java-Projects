@@ -1,14 +1,9 @@
 package entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Employee {
 	private String name;
 	private Integer hours;
 	private Double valuePerHour;
-	
-	private List<Employee> employees = new ArrayList<Employee>();
 	
 	public Employee() {
 	}
@@ -42,14 +37,6 @@ public class Employee {
 
 	public void setValuePerHour(Double valuePerHour) {
 		this.valuePerHour = valuePerHour;
-	}
-
-	public List<Employee> getEmployees() {
-		return employees;
-	}
-	
-	public void addEmployee(Employee employee) {
-		employees.add(employee);
 	}
 
 	public Double payment() {

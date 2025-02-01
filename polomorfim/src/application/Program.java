@@ -15,6 +15,7 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		List<Employee> employees = new ArrayList<Employee>();
+		
 		System.out.print("Enter the number of employees: ");
 		int n = sc.nextInt();
 		sc.nextLine();
@@ -22,7 +23,7 @@ public class Program {
 			System.out.println("Employye #"+ (i+1)+ " data:");
 					
 			System.out.print("Outsourced (y/n)? ");
-			String answer = sc.nextLine();
+			char answer = sc.nextLine().charAt(0);
 			System.out.print("Name: ");
 			String name = sc.nextLine();
 			System.out.print("Hour: ");
@@ -31,11 +32,11 @@ public class Program {
 			double valuePerHour = sc.nextDouble();
 			sc.nextLine();
 			
-			if(answer.equalsIgnoreCase("y")) {
+			if(answer == 'y') {
 				System.out.print("Additional Charge: ");
 				double additionalCharge = sc.nextDouble();
 				sc.nextLine();
-				Employee employee =  new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge);
+				Employee eoyee =  new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge);
 				employees.add(employee);
 			}else {
 				Employee employee = new Employee(name, hours, valuePerHour);
@@ -43,6 +44,8 @@ public class Program {
 			}
 		}
 		
+		System.out.println();
+		System.out.println("PAYMENTS: ");
 		for(Employee employe : employees) {
 			System.out.println(employe);
 		}
