@@ -5,13 +5,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 
 public class Program {
 
 	public static void main(String[] args) {
 		//https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
-		
 		
 		
 		// Data e hora atual
@@ -72,6 +72,12 @@ public class Program {
 		LocalDateTime r2 = LocalDateTime.ofInstant(d06, ZoneId.systemDefault());
 		
 		System.out.println(d04.getDayOfMonth());
+		
+		LocalDate pastWeekLocalDate = d04.minusDays(7);
+		LocalDate nextWeekLocalDate = d04.plusDays(7);
+		
+		Instant pastWeekInstant = d06.minus(7, ChronoUnit.DAYS);
+		Instant nextWeekInstant = d06.plus(7, ChronoUnit.DAYS);
 	}
 
 }

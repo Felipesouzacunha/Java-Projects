@@ -15,6 +15,7 @@ import entities.enums.WorkerLevel;
 public class Program {
 	
 	public static void main(String[] args) throws ParseException {
+		
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -34,12 +35,12 @@ public class Program {
 		int numberOfContracts = sc.nextInt();
 		
 		for(int i = 0; i < numberOfContracts; i++) {
-			System.out.println("Enter contract " + (i + 1) + "data: ");
+			System.out.println("Enter contract #" + (i + 1) + " data: ");
 			System.out.print("Date (DD/MM/YYYY): ");
 			Date contractDate = sdf.parse(sc.next());
 			System.out.print("Value per hour: ");
 			double hourValue = sc.nextDouble();
-			System.out.print("Duration: ");
+			System.out.print("Duration (hours): ");
 			int hours = sc.nextInt();
 			HourContract contract = new HourContract(contractDate, hourValue, hours);
 			worker.addContract(contract);
