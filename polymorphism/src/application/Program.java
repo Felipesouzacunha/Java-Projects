@@ -28,9 +28,9 @@ public class Program {
 		
 		for(int i = 0; i < numberOfProducts; i++) {
 			
+			System.out.println("Product #" +(i+1)+ " data:");
 			System.out.print("Common, used or imported (c/u/i)? ");
 			char chr = sc.next().charAt(0);
-			System.out.println("Product #" +(i+1)+ " data:");
 			System.out.print("Name: ");
 			sc.nextLine();
 			String productName = sc.nextLine();
