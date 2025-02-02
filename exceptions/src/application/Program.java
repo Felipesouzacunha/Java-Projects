@@ -29,16 +29,17 @@ public class Program {
 			System.out.print("Enter amount for withdraw: ");
 			double withdraw = sc.nextDouble();
 			account.withdraw(withdraw);
-			
+			System.out.println(account);
 		} 
-		catch (IllegalArgumentException e){
-			
-		}
 		catch (DomainException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
 		catch (RuntimeException e) {
-			System.out.println(".");
+			System.out.println("Unexpected error!");
+		}
+		finally {
+			sc.close();
+			System.out.println("dddd");
 		}
 		
 	}
