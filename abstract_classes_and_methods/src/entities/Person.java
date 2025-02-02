@@ -9,7 +9,6 @@ public abstract class Person {
 	}
 
 	public Person(String name, Double anualIncome) {
-		super();
 		this.name = name;
 		this.anualIncome = anualIncome;
 	}

@@ -43,13 +43,15 @@ public class Program {
 		}
 		
 		double totalTaxes = 0;
+		System.out.println();
 		System.out.println("TAXES PAID: ");
 		for(Person person : persons) {
 			System.out.println(person);
 			totalTaxes += person.impostsCost();
 		}
 		
-		System.out.println("TOAL TAXES: " + totalTaxes);
+		System.out.println();
+		System.out.println("TOTAL TAXES: " + totalTaxes);
 		
 		
 		sc.close();
