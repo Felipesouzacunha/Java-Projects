@@ -39,7 +39,6 @@ public class Program {
 		}
 		finally {
 			sc.close();
-			System.out.println("dddd");
 		}
 		
 	}
